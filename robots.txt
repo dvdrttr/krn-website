@@ -1,0 +1,18 @@
+# Keystone Remote Notary Robots Configuration
+User-agent: *
+Allow: /
+
+# LLM & AI Agents
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://www.keystoneremotenotary.com/sitemap.xml
