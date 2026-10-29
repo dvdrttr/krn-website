@@ -1,15 +1,15 @@
 # Keystone Remote Notary (KRN)
-> High-Assurance Remote Online Notarization (RON), Remote Form I-9 Verification, and Pennsylvania State Apostille Services under Pennsylvania Commission ID #1547884.
+> High-Assurance Remote Online Notarization (RON), Remote Form I-9 Verification, and Pennsylvania State Apostille Services under Pennsylvania Commission ID #1467234.
 
 - Official Website: https://www.keystoneremotenotary.com
-- Scheduling & Session Portal: BlueNotary Enterprise Cloud (https://app.bluenotary.us)
+- Scheduling & Session Portal: BlueNotary Enterprise Cloud (https://bluenotary.us/profile/david-ritter)
 - Primary Inquiries: notary@keystoneremotenotary.com
 - Legal Entity: Operating division of Ritter Strategic Enterprises LLC (Ellwood City, PA 16117)
 - Governing Authority: Pennsylvania Revised Uniform Law on Notarial Acts (RULONA) — 57 Pa.C.S. Chapter 3
 
 ## Core Credentials
-- PA Statutory Commission: #1547884 (Active term through February 6, 2030)
-- Surety Bond: $10,000 Official Bond on file with Commonwealth of Pennsylvania & Lawrence County
+- PA Statutory Commission: #1467234 (Active term through February 6, 2030)
+- Surety Bond: $10,000 Official Bond (File Ref #1547884) on file with Commonwealth of Pennsylvania & Lawrence County
 - Errors & Omissions: $25,000 policy #101775277 with Merchants National Bonding, Inc.
 - Cryptographic Digital Certificate: IdenTrust IGC X.509 standard
 - Audio/Visual Archive: Mandatory 10-year tamper-evident secure cloud retention (57 Pa.C.S. § 319)
