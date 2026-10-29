@@ -1,19 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Analytics 4 (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SKSQ2FW0T5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SKSQ2FW0T5');
+  </script>
+
+  <!-- RB2B B2B Visitor De-anonymization Tag -->
+  <script>
+    !function(key) {
+      if (window.reb2b) return;
+      window.reb2b = {loaded: true};
+      var s = document.createElement("script");
+      s.async = true;
+      s.src = "https://b2bjsstore.s3.us-west-2.amazonaws.com/b/" + key + "/" + key + ".js.gz";
+      document.getElementsByTagName("script")[0].parentNode.insertBefore(s, document.getElementsByTagName("script")[0]);
+    }("DNXY8HJDK1O0");
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Keystone Remote Notary | Pennsylvania Commissioned Remote Online Notarization</title>
   <meta name="description" content="High-assurance Remote Online Notarization (RON), Form I-9 verification, and PA Apostille facilitation under Pennsylvania Commission #1547884. 100% compliant, desk-side execution worldwide.">
   <link rel="canonical" href="https://www.keystoneremotenotary.com/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   
-  <!-- Google Fonts: Inter + Courier Prime -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AI & Search Engine Crawl Directives -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- OpenGraph / Social Metadata -->
+  <meta property="og:title" content="Keystone Remote Notary | High-Assurance Remote Online Notarization">
+  <meta property="og:description" content="PA Commission #1547884. Encrypted desk-side remote notarization ($25/seal), remote Form I-9 verification ($50), and Harrisburg PA Apostilles ($195). Valid nationwide.">
+  <meta property="og:url" content="https://www.keystoneremotenotary.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Schema.org Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Notary",
+    "name": "Keystone Remote Notary",
+    "url": "https://www.keystoneremotenotary.com",
+    "description": "Commonwealth of Pennsylvania commissioned Remote Online Notary Public (Commission #1547884). Desk-side digital execution, Form I-9 verification, and PA Department of State apostilles.",
+    "telephone": "+1-724-714-1978",
+    "email": "notary@keystoneremotenotary.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ellwood City",
+      "addressRegion": "PA",
+      "postalCode": "16117",
+      "addressCountry": "US"
+    },
+    "priceRange": "$25 - $195",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Electronic & Remote Notarial Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Remote Online Notarization (RON)",
+            "description": "Encrypted audiovisual signing on BlueNotary with biometric credential analysis and 10-year archive."
+          },
+          "price": "25.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Remote Form I-9 Verification",
+            "description": "Designated Authorized Representative Section 2 document examination for remote employees."
+          },
+          "price": "50.00",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Pennsylvania Apostille Facilitation",
+            "description": "White-glove Harrisburg courier document authentication through the PA Department of State."
+          },
+          "price": "195.00",
+          "priceCurrency": "USD"
+        }
+      ]
+    }
+  }
+  </script>
   
   <style>
     :root {
