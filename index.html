@@ -100,7 +100,7 @@
   <!-- Google Fonts: Inter + Courier Prime -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -122,8 +122,13 @@
       color: var(--text-main);
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
+    .font-serif {
+      font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
+    }
     .mono {
-      font-family: 'Courier Prime', monospace;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
     }
     .gold-glow {
       box-shadow: 0 0 35px rgba(217, 119, 6, 0.12);
@@ -168,7 +173,7 @@
           K
         </div>
         <div>
-          <span class="font-extrabold text-base sm:text-lg tracking-tight block text-white mono">KEYSTONE <span class="text-amber-500">//</span> NOTARY</span>
+          <span class="font-bold text-base sm:text-lg tracking-wide block text-white font-serif">KEYSTONE <span class="text-amber-500 font-light">|</span> NOTARY</span>
           <span class="text-[10px] sm:text-xs text-slate-400 block tracking-wider font-mono">PA RULONA COMPLIANT</span>
         </div>
       </a>
@@ -183,6 +188,10 @@
 
       <!-- Header Action Buttons -->
       <div class="flex items-center space-x-3">
+        <button onclick="window.toggleKateChat()" class="hidden md:inline-flex items-center text-xs text-amber-400 hover:text-amber-300 px-3.5 py-2 border border-amber-500/30 rounded hover:border-amber-500/60 transition gap-2 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Ask K.A.T.E.</span>
+        </button>
         <a href="https://bluenotary.us/profile/david-ritter" target="_blank" rel="noopener" class="hidden lg:inline-flex items-center text-xs font-mono text-slate-400 hover:text-amber-400 px-3 py-2 border border-slate-800 rounded hover:border-slate-700 transition">
           Verified Profile &rarr;
         </a>
@@ -648,15 +657,79 @@
       const body = encodeURIComponent(`Hello Keystone Remote Notary,\n\nI would like to schedule a session:\n\nService: ${serviceNames[service] || service}\nQuantity: ${qty}\nName / Firm: ${name}\nContact Email: ${email}\n\nPlease reply with the BlueNotary session invite link and preparation checklist.\n\nThank you,\n${name}`);
 
       setTimeout(() => {
-        // Open email client with pre-filled session request
+        /* Open email client with pre-filled session request */
         window.location.href = `mailto:intake@keystoneremotenotary.com?subject=${subject}&body=${body}`;
-        // Also open verified BlueNotary profile in background
+        /* Also open verified BlueNotary profile in background */
         window.open('https://bluenotary.us/profile/david-ritter', '_blank');
       }, 1000);
     }
 
-    // Initialize labels on load
+    /* Initialize labels on load */
     updateEstimate();
+  </script>
+  <!-- K.A.T.E. Live Assistant Widget -->
+    <!-- K.A.T.E. Live Virtual Notary & Compliance Assistant Widget -->
+  <script>
+    /**
+     * Keystone Remote Notary — K.A.T.E. Virtual Notary & Compliance Assistant
+     * Production Cloud Run Endpoint: https://krn-kate-agent-16289276837.us-central1.run.app
+     */
+    (function() {
+      const KATE_APP_URL = window.KRN_AGENT_URL || 'https://krn-kate-agent-16289276837.us-central1.run.app';
+
+      function injectKateWidget() {
+        if (document.getElementById('kate-widget-container')) return;
+
+        const container = document.createElement('div');
+        container.id = 'kate-widget-container';
+        container.innerHTML = `
+          <div id="kate-chat-window" class="hidden fixed bottom-20 right-4 sm:right-6 w-[92vw] sm:w-[420px] h-[580px] max-h-[82vh] bg-[#0A0E17] border border-[#D97706]/60 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden" style="box-shadow: 0 20px 45px rgba(0,0,0,0.85);">
+            <div class="bg-[#0F172A] border-b border-slate-800 px-4 py-3 flex items-center justify-between">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-amber-500 to-amber-600 text-slate-950 font-bold font-serif flex items-center justify-center text-sm shadow">K</div>
+                <div>
+                  <div class="text-xs font-bold text-white tracking-wide uppercase font-serif">K.A.T.E. &bull; Virtual Assistant</div>
+                  <div class="text-[10px] text-amber-400 flex items-center gap-1 font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    PA Commission #1467234 &bull; Intake &amp; Verification
+                  </div>
+                </div>
+              </div>
+              <button onclick="window.toggleKateChat()" class="text-slate-400 hover:text-white text-xl font-bold px-2 cursor-pointer transition">&times;</button>
+            </div>
+            <iframe id="kate-iframe" src="${KATE_APP_URL}" class="w-full flex-1 border-0" allow="camera; microphone; clipboard-write"></iframe>
+          </div>
+
+          <button
+            id="kate-toggle-btn"
+            onclick="window.toggleKateChat()"
+            aria-label="Open K.A.T.E. Virtual Assistant"
+            class="fixed bottom-16 md:bottom-6 right-4 sm:right-6 z-50 px-4 py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-2xl hover:scale-105 transition-all flex items-center gap-2 border border-amber-300 cursor-pointer"
+            style="box-shadow: 0 8px 24px rgba(217, 119, 6, 0.45);"
+          >
+            <span>💬 Ask K.A.T.E. &bull; Instant Help</span>
+          </button>
+        `;
+        document.body.appendChild(container);
+      }
+
+      window.toggleKateChat = function(serviceIntent) {
+        const win = document.getElementById('kate-chat-window');
+        const iframe = document.getElementById('kate-iframe');
+        if (!win) return;
+        if (serviceIntent && iframe) {
+          const separator = KATE_APP_URL.includes('?') ? '&' : '?';
+          iframe.src = `${KATE_APP_URL}${separator}intent=${encodeURIComponent(serviceIntent)}`;
+        }
+        win.classList.toggle('hidden');
+      };
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', injectKateWidget);
+      } else {
+        injectKateWidget();
+      }
+    })();
   </script>
 </body>
 </html>
